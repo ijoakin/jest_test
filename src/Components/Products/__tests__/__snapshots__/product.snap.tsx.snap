@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Products component renders as expected 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <form
+        className=""
+        noValidate={true}
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="form-label"
+            htmlFor="exampleForm.ControlInput1"
+          >
+            Id
+          </label>
+          <input
+            className="form-control"
+            id="exampleForm.ControlInput1"
+            placeholder="1231"
+            type="text"
+            value={10}
+          />
+        </div>
+        <div
+          className="form-group"
+        >
+          <label
+            className="form-label"
+            htmlFor="exampleForm.ControlInput1"
+          >
+            new field
+          </label>
+          <input
+            className="form-control"
+            id="exampleForm.ControlInput1"
+            placeholder="1231"
+            type="text"
+            value="test"
+          />
+        </div>
+        <div
+          className="form-group"
+        >
+          <label
+            className="form-label"
+            htmlFor="exampleForm.ControlInput1"
+          >
+            Description
+          </label>
+          <input
+            className="form-control"
+            id="exampleForm.ControlInput1"
+            placeholder="1231"
+            type="text"
+            value="description"
+          />
+        </div>
+        <div
+          className="form-group"
+        >
+          <label
+            className="form-label"
+            htmlFor="exampleForm.ControlInput1"
+          >
+            Price
+          </label>
+          <input
+            className="form-control"
+            id="exampleForm.ControlInput1"
+            placeholder="1231"
+            type="text"
+            value={12}
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

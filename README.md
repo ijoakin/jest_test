@@ -15,4 +15,11 @@
       "^.+\\.(js|jsx)$": "babel-jest",
     }
   };
+8) npm i --save react-test-renderer
+9) npm i --save @types/react-test-renderer
+----------------------------------------------------------------------------
+redux-saga
+----------
+
+
 

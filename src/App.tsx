@@ -4,6 +4,9 @@ import "./App.css";
 import { ListProducts } from "./Components/Products";
 import { Product } from "./Components/Products/product";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Provider } from "react-redux";
+import { store } from "./Components/Store/Store";
+import ConnectProduct from "./Components/Products/ConnectedProduct";
 
 function App() {
   const prod: Product = {
@@ -13,9 +16,11 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <ListProducts prod={prod}></ListProducts>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <ConnectProduct></ConnectProduct>
+      </div>
+    </Provider>
   );
 }
 

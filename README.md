@@ -1,4 +1,4 @@
-#steps
+# Steps
 1) npx create-react-app myapp --template typescript
 2) npm install react-bootstrap bootstrap
 3) add import 'bootstrap/dist/css/bootstrap.min.css'; in App.tsx
@@ -17,6 +17,14 @@
   };
 8) npm i --save react-test-renderer
 9) npm i --save @types/react-test-renderer
+----------------------------------------------------------------------------
+# redux
+1) npm install redux react-redux (no need types for readux is written in typescript but yes for react-redux)
+2) npm install @types/react-redux
+
+add provider to App.tsx
+
+
 ----------------------------------------------------------------------------
 redux-saga
 ----------

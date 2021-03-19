@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Products component renders as expected 1`] = `
+exports[`First test renders as expected 1`] = `
 <div
   className="container"
 >
@@ -83,6 +83,11 @@ exports[`Products component renders as expected 1`] = `
           />
         </div>
       </form>
+      <button
+        onClick={[Function]}
+      >
+        Get Product
+      </button>
     </div>
   </div>
 </div>

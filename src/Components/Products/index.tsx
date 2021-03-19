@@ -1,12 +1,24 @@
 import * as React from "react";
+import { MouseEventHandler } from "react";
 import { Container, Form, Col, Row } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { ListProductsProps } from "./ConnectedProduct";
 import { Product } from "./product";
 
-interface ListProductsProps {
-  prod: Product;
-}
-
 export function ListProducts(props: ListProductsProps) {
+  const dispatch = useDispatch();
+
+  const getProduct: MouseEventHandler<HTMLButtonElement> | undefined = () => {
+    dispatch({
+      type: "FETCH_PRODUCT_ACTION",
+      payload: {
+        description: "description",
+        id: 10,
+        price: 25,
+      },
+    });
+  };
+
   return (
     <Container>
       <Row>
@@ -41,6 +53,7 @@ export function ListProducts(props: ListProductsProps) {
               />
             </Form.Group>
           </Form>
+          <button onClick={getProduct}>Get Product</button>
         </Col>
       </Row>
     </Container>

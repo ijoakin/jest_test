@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List Products Component Tests Should render as expected 1`] = `
+<div
+  className="table-responsive"
+>
+  <table
+    className="table"
+  >
+    <thead>
+      <th>
+        Id
+      </th>
+      <th>
+        Description
+      </th>
+      <th>
+        Price
+      </th>
+    </thead>
+    <tbody />
+  </table>
+  <div>
+    <button
+      onClick={[Function]}
+    >
+      Get Product
+    </button>
+  </div>
+  <div>
+    <button
+      onClick={[Function]}
+    >
+      Get Total
+    </button>
+    <input
+      type="text"
+      value={0}
+    />
+  </div>
+</div>
+`;

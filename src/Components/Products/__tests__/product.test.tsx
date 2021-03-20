@@ -1,6 +1,6 @@
 import React from "react";
 import rendered from "react-test-renderer";
-import { ListProducts } from "../index";
+import { Products } from "../index";
 import {
   screen,
   fireEvent,
@@ -45,15 +45,15 @@ describe("First test", () => {
   it("renders as expected", () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const prod: Product = {
-      description: "description",
-      id: 10,
-      price: 12,
+      Description: "description",
+      Id: 10,
+      Price: 12,
     };
 
     const tree = rendered
       .create(
         <Provider store={store}>
-          <ListProducts prod={prod}></ListProducts>
+          <Products prod={prod}></Products>
         </Provider>
       )
       .toJSON();
@@ -65,13 +65,15 @@ describe("First test", () => {
   describe("mapstateToPorps", () => {
     it("should map state to props correctly", () => {
       const prod: Product = {
-        id: 10,
-        description: "Description 10",
-        price: 13,
+        Id: 10,
+        Description: "Description 10",
+        Price: 13,
       };
 
       const appState: ProductsState = {
         product: prod,
+        listProducts:[],
+        total:0
       };
       const componentState = mapStateToProps(appState);
 

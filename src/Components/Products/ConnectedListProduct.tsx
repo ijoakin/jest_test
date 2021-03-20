@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { Products } from ".";
 import { ProductsState } from "../Store/Reducers/ProductReducer";
+import { ListProducts } from "./ListProducts";
 import { Product } from "./product";
 
 export interface ListProductsProps {
@@ -8,15 +9,11 @@ export interface ListProductsProps {
   total: number;
 }
 
-export interface ProductProps {
-  prod: Product;
-}
-
-
-export const mapStateToProps = (state: ProductsState): ProductProps => {
+export const mapStateToProps = (state: ProductsState): ListProductsProps => {
   return {
-    prod: state.product,
+    products: state.listProducts,
+    total: state.total
   };
 };
 
-export default connect(mapStateToProps)(Products);
+export default connect(mapStateToProps)(ListProducts);

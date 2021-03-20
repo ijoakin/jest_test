@@ -2,10 +2,10 @@ import * as React from "react";
 import { MouseEventHandler } from "react";
 import { Container, Form, Col, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { ListProductsProps } from "./ConnectedProduct";
+import { ProductProps } from "./ConnectedProduct";
 import { Product } from "./product";
 
-export function ListProducts(props: ListProductsProps) {
+export function Products(props: ProductProps) {
   const dispatch = useDispatch();
 
   const getProduct: MouseEventHandler<HTMLButtonElement> | undefined = () => {
@@ -28,7 +28,7 @@ export function ListProducts(props: ListProductsProps) {
               <Form.Label>Id</Form.Label>
               <Form.Control
                 type="text"
-                value={props.prod.id}
+                value={props.prod.Id}
                 placeholder="1231"
               />
             </Form.Group>
@@ -40,7 +40,7 @@ export function ListProducts(props: ListProductsProps) {
               <Form.Label>Description</Form.Label>
               <Form.Control
                 type="text"
-                value={props.prod.description}
+                value={props.prod.Description}
                 placeholder="1231"
               />
             </Form.Group>
@@ -48,7 +48,7 @@ export function ListProducts(props: ListProductsProps) {
               <Form.Label>Price</Form.Label>
               <Form.Control
                 type="text"
-                value={props.prod.price}
+                value={props.prod.Price}
                 placeholder="1231"
               />
             </Form.Group>

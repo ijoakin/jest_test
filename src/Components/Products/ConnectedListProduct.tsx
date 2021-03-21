@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { Products } from ".";
-import { ProductsState } from "../Store/Reducers/ProductReducer";
+import { ProductsState } from "../../store/Reducers/ProductReducer";
 import { ListProducts } from "./ListProducts";
 import { Product } from "./product";
 

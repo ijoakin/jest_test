@@ -13,8 +13,8 @@ import { Provider } from "react-redux";
 import {
   initialState,
   ProductsState,
-} from "../../Store/Reducers/ProductReducer";
-import { store } from "../../Store/Store";
+} from "../../../store/Reducers/ProductReducer";
+import { store } from "../../../store/Store";
 import { mapStateToProps } from "../ConnectedProduct";
 
 describe("First test", () => {

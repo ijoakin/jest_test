@@ -22,6 +22,7 @@ exports[`List Products Component Tests Should render as expected 1`] = `
   </table>
   <div>
     <button
+      id="btnGetTotal"
       onClick={[Function]}
     >
       Get Product
@@ -29,11 +30,14 @@ exports[`List Products Component Tests Should render as expected 1`] = `
   </div>
   <div>
     <button
+      id="btnGetTotal"
       onClick={[Function]}
     >
       Get Total
     </button>
     <input
+      className="txtTotal"
+      id="txtTotal"
       type="text"
       value={0}
     />

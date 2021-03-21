@@ -1,4 +1,4 @@
-import { Product } from "../../Products/product";
+import { Product } from "../../Components/Products/product";
 
 export interface ProductsState {
   product: Product;

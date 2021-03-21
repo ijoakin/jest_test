@@ -1,8 +1,9 @@
 import { Provider } from "react-redux";
 import rendered from "react-test-renderer";
-import { ProductReducer, ProductsState } from "../../Store/Reducers/ProductReducer";
-import { store } from "../../Store/Store";
+import { ProductReducer, ProductsState } from "../../../store/Reducers/ProductReducer";
+import { store } from "../../../store/Store";
 import ConnectedListProduct, { mapStateToProps } from "../ConnectedListProduct";
+import delay from "redux-saga";
 
 const getMockState = ():ProductsState => {
   return {
@@ -38,7 +39,7 @@ describe("List Products Component Tests", () => {
     state = getMockState();
   });
 
-it("Should render as expected", () => {
+it.only("Should render as expected", () => {
     const tree = rendered.create(
       <Provider store={store}>
         <ConnectedListProduct></ConnectedListProduct>
@@ -46,6 +47,39 @@ it("Should render as expected", () => {
       ).toJSON();
 
       expect(tree).toMatchSnapshot();
+  })
+
+   it("Should total be equal to zero when the component is rendered", async () => {
+    const tree = rendered.create(
+      <Provider store={store}>
+        <ConnectedListProduct></ConnectedListProduct>
+      </Provider>
+    );
+
+    await delay();
+
+    const instance = tree.root;
+    const component = instance.findByProps({ id: "txtTotal" } );
+
+    const text = component.props.value; // this going to get the text
+
+    expect(text).toEqual(0);
+  })
+  it("Should calculate using the component", async () => {
+    const tree = rendered.create(
+      <Provider store={store}>
+        <ConnectedListProduct></ConnectedListProduct>
+      </Provider>
+    );
+
+    await delay();
+
+    const instance = tree.root;
+    const component = instance.findByProps({ id: "txtTotal" } );
+
+    const text = component.props.value; // this going to get the text
+
+    expect(text).toEqual(0);
   })
 
   it("Should Props be correct", () =>{

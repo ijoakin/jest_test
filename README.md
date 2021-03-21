@@ -28,6 +28,6 @@ add provider to App.tsx
 ----------------------------------------------------------------------------
 redux-saga
 ----------
-
+1) npm install redux-saga
 
 

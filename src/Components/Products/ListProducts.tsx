@@ -2,7 +2,7 @@ import * as React from "react";
 import { MouseEventHandler } from "react";
 import { Container, Form, Col, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { ProductsState } from "../Store/Reducers/ProductReducer";
+import { ProductsState } from "../../store/Reducers/ProductReducer";
 import { ListProductsProps } from "./ConnectedProduct";
 import { Product } from "./product";
 
@@ -56,11 +56,11 @@ export function ListProducts(props: ListProductsProps) {
         </tbody>
       </table>
       <div>
-        <button onClick={getProduct}>Get Product</button>
+        <button onClick={getProduct} id='btnGetTotal'>Get Product</button>
       </div>
       <div>
-        <button onClick={getTotal}>Get Total</button>
-        <input type="text" value={props.total} />
+        <button onClick={getTotal} id='btnGetTotal'>Get Total</button>
+        <input type="text" value={props.total} className="txtTotal" id='txtTotal' />
       </div>
     </div>
   );

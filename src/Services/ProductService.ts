@@ -1,5 +1,3 @@
-import { useDispatch } from "react-redux";
-
 
 export const getProducts = () => {
    const apiUrl = 'https://localhost:5001/Products';

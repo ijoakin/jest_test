@@ -1,42 +1,31 @@
 import React from "react";
 import rendered from "react-test-renderer";
 import { Products } from "../index";
-import {
-  screen,
-  fireEvent,
-  render,
-  cleanup,
-  waitFor,
-} from "@testing-library/react";
 import { Product } from "../product";
 import { Provider } from "react-redux";
-import {
-  initialState,
-  ProductsState,
-} from "../../../store/Reducers/ProductReducer";
+import { ProductsState } from "../../../store/Reducers/ProductReducer";
 import { store } from "../../../store/Store";
 import { mapStateToProps } from "../ConnectedProduct";
 
-jest.mock("")
+jest.mock("");
 
 const sumArray = (): number => {
-  const ar: number[] = [1,2,3,4,5,6,7];
+  const ar: number[] = [1, 2, 3, 4, 5, 6, 7];
   let total = 0;
   ar.map((value: number) => {
-    total+=value;
-  })
+    total += value;
+  });
 
   return total;
-}
+};
 
 const sumArrayReduce = (): number => {
-  const ar: number[] = [1,2,3,4,5,6,7];
+  const ar: number[] = [1, 2, 3, 4, 5, 6, 7];
   const total = ar.reduce(
-    (accumulator:number, currentValue:number) => 
-                accumulator + currentValue);
+    (accumulator: number, currentValue: number) => accumulator + currentValue
+  );
   return total;
-}
-
+};
 
 describe("First test", () => {
   beforeAll(() => {
@@ -63,17 +52,15 @@ describe("First test", () => {
     const result = sumArray();
 
     expect(result).toEqual(28);
-  })
+  });
 
   it("should sum values using a reduce", () => {
     const result = sumArrayReduce();
 
     expect(result).toEqual(28);
-  })
-
+  });
 
   it("should work", () => {
-    
     expect(2 + 2).toEqual(4);
   });
 
@@ -107,8 +94,8 @@ describe("First test", () => {
 
       const appState: ProductsState = {
         product: prod,
-        listProducts:[],
-        total:0
+        listProducts: [],
+        total: 0,
       };
       const componentState = mapStateToProps(appState);
 

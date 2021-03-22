@@ -22,7 +22,7 @@ exports[`List Products Component Tests Should render as expected 1`] = `
   </table>
   <div>
     <button
-      id="btnGetTotal"
+      id="btnGetProduct"
       onClick={[Function]}
     >
       Get Product

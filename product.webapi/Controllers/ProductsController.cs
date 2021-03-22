@@ -8,12 +8,12 @@ using Model;
 
 namespace product.webapi.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class ProductsController : ControllerBase
+  [ApiController]
+  [Route("[controller]")]
+  public class ProductsController : ControllerBase
+  {
+    private static readonly string[] Descriptions = new[]
     {
-        private static readonly string[] Descriptions = new[]
-        {
             "Car Tires",
             "Transmission Belts",
             "Miscellaneous Rubber",
@@ -26,24 +26,24 @@ namespace product.webapi.Controllers
             "Unworked Cast Glass"
         };
 
-        private readonly ILogger<Product> _logger;
+    private readonly ILogger<Product> _logger;
 
-        public ProductsController(ILogger<Product> logger)
-        {
-            _logger = logger;
-        }
-
-        [HttpGet]
-        public IEnumerable<Product> Get()
-        {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new Product
-            {
-                Id = index,
-                Description = Descriptions[index],
-                Price = rng.Next(0, 255)
-            })
-            .ToArray();
-        }
+    public ProductsController(ILogger<Product> logger)
+    {
+      _logger = logger;
     }
+
+    [HttpGet]
+    public IEnumerable<Product> Get()
+    {
+      var rng = new Random();
+      return Enumerable.Range(1, 5).Select(index => new Product
+      {
+        Id = index,
+        Description = Descriptions[index],
+        Price = 15
+      })
+      .ToArray();
+    }
+  }
 }

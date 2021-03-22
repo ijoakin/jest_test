@@ -33,16 +33,16 @@ describe("automation using enzyme", () => {
       </Provider>
     );
 
-    const buttonGetProduct = wrapper.find({ id: "btnGetProduct" });
-    buttonGetProduct.simulate("click");
+    wrapper.find({ id: "btnGetTotal" }).props().onClick();
+    // const buttonGetProduct = wrapper.find({ id: "btnGetProduct" });
+    // buttonGetProduct.simulate("click");
     wrapper.update();
     await delay(100);
 
-    const button = wrapper.find({ id: "btnGetTotal" });
-    button.simulate("click");
+    // const button = wrapper.find({ id: "btnGetTotal" });
+    // button.simulate("click");
 
-
-    const didMount = wrapper.instance();
+    wrapper.find({ id: "btnGetTotal" }).props().onClick();
 
     wrapper.update();
     await delay(100);

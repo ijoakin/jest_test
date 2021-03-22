@@ -11,18 +11,20 @@ import { ListProducts } from "../ListProducts";
 import { Products } from "..";
 import { SSL_OP_NO_TLSv1_1 } from "constants";
 import { store } from "../../../store/Store";
+import { delay } from "@redux-saga/core/effects";
 
-let wrapper: ReactWrapper;
 
-//jest.mock("../../../Services/ProductService.ts");
 
-//const productSevice = require("../../../Services/ProductService").getProducts;
+jest.mock("../../../Services/ProductService.ts");
+
+const productSevice = require("../../../Services/ProductService").getProducts;
 
 configure({ adapter: new Adapter() });
+let wrapper: ReactWrapper;
 describe("automation using enzyme", () => {
   beforeAll(() => {});
 
-  it("should render the component", () => {
+  it("should render the component", async () => {
     let st = store;
 
     wrapper = mount(
@@ -31,19 +33,30 @@ describe("automation using enzyme", () => {
       </Provider>
     );
 
-    const buttonGetValues = wrapper.find({ id: "btnGetProduct" });
-    buttonGetValues.simulate("click");
+    const buttonGetProduct = wrapper.find({ id: "btnGetProduct" });
+    buttonGetProduct.simulate("click");
+    wrapper.update();
+    await delay(100);
 
     const button = wrapper.find({ id: "btnGetTotal" });
     button.simulate("click");
 
+
+    const didMount = wrapper.instance();
+
+    wrapper.update();
+    await delay(100);
+
     const inputTotal = wrapper.find({ id: "txtTotal" });
     const totalValue = inputTotal.render().attr("value");
 
-    expect(totalValue).toEqual("0");
+    expect(totalValue).toEqual("10");
 
     //inputTotal.render().attr("value");
 
     //expect(wrapper).toMatchSnapshot();
+  });
+  afterEach(() => {
+    wrapper.unmount();
   });
 });

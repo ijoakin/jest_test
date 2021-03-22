@@ -29,5 +29,15 @@ add provider to App.tsx
 redux-saga
 ----------
 1) npm install redux-saga
+----------------------------------------------------------------------------
+Enzyme
+1)  npm i --save-dev enzyme enzyme-adapter-react-16
+    npm i --save-dev @types/enzyme
+    npm install --save-dev @wojtekmaj/enzyme-adapter-react-17 
+
+    npm install --save-dev --legacy-peer-deps @wojtekmaj/enzyme-adapter-react-17 
+
+
+
 
 

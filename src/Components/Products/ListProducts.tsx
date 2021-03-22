@@ -14,7 +14,7 @@ export function ListProducts(props: ListProductsProps) {
   const getProduct:
     | MouseEventHandler<HTMLButtonElement>
     | undefined = async () => {
-    const products = getProducts().then((response) => {
+    getProducts().then((response) => {
       payload.listProducts = response;
       dispatch({
         type: "ITEMS_RECEIVED",
@@ -27,23 +27,23 @@ export function ListProducts(props: ListProductsProps) {
     });
   };
 
-  useEffect(() => {
-    getProducts().then((response) => {
-      payload.listProducts = response;
-      dispatch({
-        type: "ITEMS_RECEIVED",
-        payload: payload,
-      });
-      dispatch({
-        type: "CALCULATE_TOTAL",
-        payload: payload,
-      });
-    });
-    dispatch({
-      type: "ITEMS_REQUESTED",
-      payload: payload,
-    });
-  }, props.products);
+  // useEffect(() => {
+  //   getProducts().then((response) => {
+  //     payload.listProducts = response;
+  //     dispatch({
+  //       type: "ITEMS_RECEIVED",
+  //       payload: payload,
+  //     });
+  //     dispatch({
+  //       type: "CALCULATE_TOTAL",
+  //       payload: payload,
+  //     });
+  //   });
+  //   dispatch({
+  //     type: "ITEMS_REQUESTED",
+  //     payload: payload,
+  //   });
+  // }, props.products);
 
   const getTotal: MouseEventHandler<HTMLButtonElement> | undefined = () => {
     dispatch({

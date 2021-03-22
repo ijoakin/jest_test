@@ -7,24 +7,24 @@ import delay from "redux-saga";
 
 const getMockState = ():ProductsState => {
   return {
-     product: {Description:"", Id:0, Price:0},
+     product: {description:"", id:0, price:0},
      listProducts: [{
-            Description: "description",
-            Id: 10,
-            Price: 25
+            description: "description",
+            id: 10,
+            price: 25
           },{
-            Description: "description2",
-            Id: 11,
-            Price: 25
+            description: "description2",
+            id: 11,
+            price: 25
           },{
-            Description: "description3",
-            Id: 12,
-            Price: 25
+            description: "description3",
+            id: 12,
+            price: 25
           },
           {
-            Description: "description4",
-            Id: 13,
-            Price: 25
+            description: "description4",
+            id: 13,
+            price: 25
           }],
       total: 0
   }
@@ -39,7 +39,7 @@ describe("List Products Component Tests", () => {
     state = getMockState();
   });
 
-it.only("Should render as expected", () => {
+it("Should render as expected", () => {
     const tree = rendered.create(
       <Provider store={store}>
         <ConnectedListProduct></ConnectedListProduct>
@@ -66,6 +66,22 @@ it.only("Should render as expected", () => {
     expect(text).toEqual(0);
   })
   it("Should calculate using the component", async () => {
+    const tree = rendered.create(
+      <Provider store={store}>
+        <ConnectedListProduct></ConnectedListProduct>
+      </Provider>
+    );
+
+    await delay();
+
+    const instance = tree.root;
+    const component = instance.findByProps({ id: "txtTotal" } );
+
+    const text = component.props.value; // this going to get the text
+
+    expect(text).toEqual(0);
+  })
+  it("Should calculate getting values from mock", async () => {
     const tree = rendered.create(
       <Provider store={store}>
         <ConnectedListProduct></ConnectedListProduct>

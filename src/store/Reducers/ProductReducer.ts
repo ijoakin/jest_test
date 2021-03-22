@@ -8,28 +8,33 @@ export interface ProductsState {
 
 export const initialState: ProductsState = {
   product: {
-    Description: "",
-    Id: 150,
-    Price: 10
+    description: "",
+    id: 150,
+    price: 10
   },
   listProducts: [],
   total: 0
 }
 
-type ProductActionType = { type: "FETCH_PRODUCT_ACTION" | "FETCH_PRODUCTS_ACTION" | "CALCULATE_TOTAL" , payload: ProductsState }
+type ProductActionType = { type: "FETCH_PRODUCT_ACTION" | "ITEMS_REQUESTED" | "CALCULATE_TOTAL" | "ITEMS_RECEIVED" , payload: ProductsState }
 
 export const ProductReducer = (state: ProductsState = initialState, action: ProductActionType) => {
+  
   switch (action.type){
     case "FETCH_PRODUCT_ACTION": {
       return {...state}
     }
-    case "FETCH_PRODUCTS_ACTION": {
+    case "ITEMS_REQUESTED": {
+      return {...action.payload}
+    }
+    case "ITEMS_RECEIVED": {
+      debugger;
       return {...action.payload}
     }
     case "CALCULATE_TOTAL": {
-      const payload = {...action.payload};
+      const payload = {...state};
       let total = 0;
-      payload.listProducts.map(product => total+=product.Price);
+      payload.listProducts.map(product => total+=product.price);
       payload.total = total;
       return payload;
     }

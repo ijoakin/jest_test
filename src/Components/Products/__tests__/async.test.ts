@@ -1,4 +1,4 @@
-//import delay from 'redux-saga/effects';
+import delay from 'redux-saga/effects';
 
 describe("async tests", ()=> {
   it("should do something async", done=>{

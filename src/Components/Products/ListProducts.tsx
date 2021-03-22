@@ -1,45 +1,35 @@
-import * as React from "react";
 import { MouseEventHandler } from "react";
-import { Container, Form, Col, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { ProductsState } from "../../store/Reducers/ProductReducer";
+import { getProducts } from "../../Services/ProductService";
 import { ListProductsProps } from "./ConnectedProduct";
-import { Product } from "./product";
+
 
 export function ListProducts(props: ListProductsProps) {
   const dispatch = useDispatch();
-  const pl = {
+  const payload = {
     product: {Description:"", Id:0, Price:0},
-    listProducts: [{
-            Description: "description",
-            Id: 10,
-            Price: 25
-          },{
-            Description: "description2",
-            Id: 11,
-            Price: 25
-          },{
-            Description: "description3",
-            Id: 12,
-            Price: 25
-          },
-          {
-            Description: "description4",
-            Id: 13,
-            Price: 25
-          }]
+    listProducts: []
   };
   
-  const getProduct: MouseEventHandler<HTMLButtonElement> | undefined = () => {
+  const getProduct: MouseEventHandler<HTMLButtonElement> | undefined = async () => {
+    const products = getProducts()
+      .then((response) => {
+           payload.listProducts = response;
+           dispatch({
+            type: "ITEMS_RECEIVED",
+            payload: payload
+          });
+        }
+      );
     dispatch({
-      type: "FETCH_PRODUCTS_ACTION",
-      payload: pl
+      type: "ITEMS_REQUESTED",
+      payload: payload
     });
   };
   const getTotal: MouseEventHandler<HTMLButtonElement> | undefined = () => {
     dispatch({
       type: "CALCULATE_TOTAL",
-      payload: pl
+      payload: payload
     });
   };
 
@@ -52,11 +42,11 @@ export function ListProducts(props: ListProductsProps) {
           <th>Price</th>
         </thead>
         <tbody>
-          {props.products.map(product => <tr> <td>{product.Id}</td><td>{product.Description}</td><td>{product.Price}</td></tr>)} 
+          {props.products.map(product => <tr> <td>{product.id}</td><td>{product.description}</td><td>{product.price}</td></tr>)} 
         </tbody>
       </table>
       <div>
-        <button onClick={getProduct} id='btnGetTotal'>Get Product</button>
+        <button onClick={getProduct} id='btnGetProduct'>Get Product</button>
       </div>
       <div>
         <button onClick={getTotal} id='btnGetTotal'>Get Total</button>

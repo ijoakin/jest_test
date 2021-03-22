@@ -17,6 +17,27 @@ import {
 import { store } from "../../../store/Store";
 import { mapStateToProps } from "../ConnectedProduct";
 
+jest.mock("")
+
+const sumArray = (): number => {
+  const ar: number[] = [1,2,3,4,5,6,7];
+  let total = 0;
+  ar.map((value: number) => {
+    total+=value;
+  })
+
+  return total;
+}
+
+const sumArrayReduce = (): number => {
+  const ar: number[] = [1,2,3,4,5,6,7];
+  const total = ar.reduce(
+    (accumulator:number, currentValue:number) => 
+                accumulator + currentValue);
+  return total;
+}
+
+
 describe("First test", () => {
   beforeAll(() => {
     console.log("before All");
@@ -38,16 +59,30 @@ describe("First test", () => {
     expect(2 + 2).toEqual(4);
   });
 
+  it("Should sum values", () => {
+    const result = sumArray();
+
+    expect(result).toEqual(28);
+  })
+
+  it("should sum values using a reduce", () => {
+    const result = sumArrayReduce();
+
+    expect(result).toEqual(28);
+  })
+
+
   it("should work", () => {
+    
     expect(2 + 2).toEqual(4);
   });
 
   it("renders as expected", () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const prod: Product = {
-      Description: "description",
-      Id: 10,
-      Price: 12,
+      description: "description",
+      id: 10,
+      price: 12,
     };
 
     const tree = rendered
@@ -65,9 +100,9 @@ describe("First test", () => {
   describe("mapstateToPorps", () => {
     it("should map state to props correctly", () => {
       const prod: Product = {
-        Id: 10,
-        Description: "Description 10",
-        Price: 13,
+        id: 10,
+        description: "Description 10",
+        price: 13,
       };
 
       const appState: ProductsState = {

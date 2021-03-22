@@ -28,7 +28,7 @@ export function Products(props: ProductProps) {
               <Form.Label>Id</Form.Label>
               <Form.Control
                 type="text"
-                value={props.prod.Id}
+                value={props.prod.id}
                 placeholder="1231"
               />
             </Form.Group>
@@ -40,7 +40,7 @@ export function Products(props: ProductProps) {
               <Form.Label>Description</Form.Label>
               <Form.Control
                 type="text"
-                value={props.prod.Description}
+                value={props.prod.description}
                 placeholder="1231"
               />
             </Form.Group>
@@ -48,7 +48,7 @@ export function Products(props: ProductProps) {
               <Form.Label>Price</Form.Label>
               <Form.Control
                 type="text"
-                value={props.prod.Price}
+                value={props.prod.price}
                 placeholder="1231"
               />
             </Form.Group>

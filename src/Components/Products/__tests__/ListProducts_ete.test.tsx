@@ -24,8 +24,9 @@ describe('Google', () => {
     //await page.goto('http://localhost:3000', {waitUntil: 'domcontentloaded'});
     // const browser = await puppetter.connect({ browserURL: 'http://localhost:3000'});
     // const page = await browser.newPage();
-
-    const wsChromeEndpointurl = 'ws://127.0.0.1:9222/devtools/browser/fbf0517d-0693-4cd5-8fb6-108d3bf32035';
+    
+    //http://127.0.0.1:9222/json/version
+    const wsChromeEndpointurl = 'ws://127.0.0.1:9222/devtools/browser/d89a29bf-b5b0-44df-b15b-0e505bcf6d10';
     const browser = await puppetter.connect({
         browserWSEndpoint: wsChromeEndpointurl,
     });

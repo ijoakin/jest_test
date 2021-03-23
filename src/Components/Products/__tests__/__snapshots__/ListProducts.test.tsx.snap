@@ -36,7 +36,7 @@ exports[`List Products Component Tests Should render as expected 1`] = `
       Get Total
     </button>
     <input
-      className="txtTotal"
+      className="divtxtTotal"
       id="txtTotal"
       type="text"
       value={0}

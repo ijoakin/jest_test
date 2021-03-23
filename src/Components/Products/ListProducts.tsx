@@ -1,12 +1,13 @@
 import { MouseEventHandler, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getProducts } from "../../Services/ProductService";
+import { ProductsState } from "../../store/Reducers/ProductReducer";
 import { ListProductsProps } from "./ConnectedProduct";
 
 export function ListProducts(props: ListProductsProps) {
   const dispatch = useDispatch();
-  const payload = {
-    product: { Description: "", Id: 0, Price: 0 },
+  const payload: ProductsState = {
+    product: { description: "", id: 0, price: 0 },
     listProducts: [],
     total: 0,
   };
@@ -14,6 +15,8 @@ export function ListProducts(props: ListProductsProps) {
   const getProduct:
     | MouseEventHandler<HTMLButtonElement>
     | undefined = async () => {
+      //alert("execute click");
+      console.log("execute click");
     const products = getProducts().then((response) => {
       payload.listProducts = response;
       dispatch({
@@ -27,23 +30,23 @@ export function ListProducts(props: ListProductsProps) {
     });
   };
 
-  useEffect(() => {
-    getProducts().then((response) => {
-      payload.listProducts = response;
-      dispatch({
-        type: "ITEMS_RECEIVED",
-        payload: payload,
-      });
-      dispatch({
-        type: "CALCULATE_TOTAL",
-        payload: payload,
-      });
-    });
-    dispatch({
-      type: "ITEMS_REQUESTED",
-      payload: payload,
-    });
-  }, props.products);
+  // useEffect(() => {
+  //   getProducts().then((response) => {
+  //     payload.listProducts = response;
+  //     dispatch({
+  //       type: "ITEMS_RECEIVED",
+  //       payload: payload,
+  //     });
+  //     dispatch({
+  //       type: "CALCULATE_TOTAL",
+  //       payload: payload,
+  //     });
+  //   });
+  //   dispatch({
+  //     type: "ITEMS_REQUESTED",
+  //     payload: payload,
+  //   });
+  // }, props.products);
 
   const getTotal: MouseEventHandler<HTMLButtonElement> | undefined = () => {
     dispatch({
@@ -82,7 +85,7 @@ export function ListProducts(props: ListProductsProps) {
         <input
           type="text"
           value={props.total}
-          className="txtTotal"
+          className="divtxtTotal"
           id="txtTotal"
         />
       </div>

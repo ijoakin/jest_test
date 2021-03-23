@@ -30,4 +30,7 @@ redux-saga
 ----------
 1) npm install redux-saga
 
+---------------------------------------------------------------------------------
+Puppeteer
 
+1) npm i puppeteer @types/puppeteer jest-puppeteer @types/jest-environment-puppeteer

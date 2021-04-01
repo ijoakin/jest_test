@@ -28,7 +28,6 @@ export const ProductReducer = (state: ProductsState = initialState, action: Prod
       return {...action.payload}
     }
     case "ITEMS_RECEIVED": {
-      debugger;
       return {...action.payload}
     }
     case "CALCULATE_TOTAL": {

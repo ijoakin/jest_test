@@ -39,8 +39,6 @@ const getMockState = (): ProductsState => {
 
 jest.mock("../../../Services/ProductService.ts");
 
-const productSevice = require("../../../Services/ProductService").getProducts;
-
 describe("List Products Component Tests", () => {
   let state: ProductsState;
 

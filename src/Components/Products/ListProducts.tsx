@@ -1,5 +1,5 @@
 import { MouseEventHandler, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { ReactReduxContext, useDispatch } from "react-redux";
 import { getProducts } from "../../Services/ProductService";
 import { ProductsState } from "../../store/Reducers/ProductReducer";
 import { ListProductsProps } from "./ConnectedProduct";
@@ -15,8 +15,8 @@ export function ListProducts(props: ListProductsProps) {
   const getProduct:
     | MouseEventHandler<HTMLButtonElement>
     | undefined = async () => {
-      //alert("execute click");
-      console.log("execute click");
+    //alert("execute click");
+    console.log("execute click");
     const products = getProducts().then((response) => {
       payload.listProducts = response;
       dispatch({

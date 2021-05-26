@@ -2,7 +2,7 @@ import { Product } from "../Components/Products/product";
 
 export const getProducts = () => {
   
-   const apiUrl = 'https://localhost:5001/Products';
+   const apiUrl = 'https://localhost:9001/Products';
      return fetch(apiUrl,
         {
           method: 'GET',
@@ -16,3 +16,7 @@ export const getProducts = () => {
   
 }
 
+export const functionCall = () => {
+  console.log("testing jest");
+
+}

@@ -10,6 +10,8 @@ import { ListProducts } from "./Components/Products/ListProducts";
 import { Products } from "./Components/Products";
 import { Home } from "./Components/Home";
 import { createBrowserHistory } from "history";
+import { TestComponent } from "./Components/Products/componentTest";
+import { TestingComponent1 } from "./Components/Products/TestingComponent1";
 
 function App() {
   const history = createBrowserHistory();

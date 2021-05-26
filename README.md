@@ -34,3 +34,4 @@ redux-saga
 Puppeteer
 
 1) npm i puppeteer @types/puppeteer jest-puppeteer @types/jest-environment-puppeteer
+2) npm i puppeteer-core

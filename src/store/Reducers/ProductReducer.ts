@@ -1,5 +1,5 @@
 import { Product } from "../../Components/Products/product";
-
+// global state 
 export interface ProductsState {
   product: Product;
   listProducts: Product[];
@@ -9,8 +9,8 @@ export interface ProductsState {
 export const initialState: ProductsState = {
   product: {
     description: "",
-    id: 150,
-    price: 10
+    id: 0,
+    price: 0
   },
   listProducts: [],
   total: 0
